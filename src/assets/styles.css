@@ -29,7 +29,7 @@
     margin: 0;
     height:100vh;
     width:100vw;
-    background-image: url('./background.png');
+    background-image: url('https://res.cloudinary.com/dru2bs0qd/image/upload/art_pifuw5.png');
     background-size: cover;
     /* overflow: auto; */   
     background-position: center center;
@@ -46,7 +46,7 @@
     margin: 0;
     height:100vh;
     width:100vw;
-    background-image: url('./background1.png');
+    background-image: url('https://res.cloudinary.com/dru2bs0qd/image/upload/background1_szpsjn.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
