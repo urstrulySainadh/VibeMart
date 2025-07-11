@@ -15,11 +15,12 @@ export function CategoryNavigation({ onCategoryClick }) {
     <nav className="category-navigation">
       <ul className="category-list">
         {categories.map((category, index) => (
-          <div className="category-pictures">
+          <div key={index} className="category-pictures">
                 <img
                   src={categories_pictures[index]} // Use the imported image
                   alt="Vibemart Logo"
                   className="category-picture" // Updated class name
+                  onClick={() => onCategoryClick(category)}
                   onError={(e) => { e.target.src = 'fallback-logo.png'; }} // Fallback for image error
                  />
           <li

@@ -18,7 +18,7 @@ export default function LoginPage() {
     }
 
     try {
-      const response = await fetch("http://localhost:9090/api/auth/login", {
+      const response = await fetch("https://vibemart-backend.onrender.com/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,6 +47,11 @@ export default function LoginPage() {
     } catch (err) {
       setError(err.message || "Unexpected error occurred");
     }
+  };
+
+ //redirecting to customer login page 
+  const handleLoginFromRegistration = () => {
+    navigate('/'); // Navigate to the login route
   };
 
   return (
@@ -89,7 +94,7 @@ export default function LoginPage() {
             </button>
           </form>
           <div className="form-footer">
-            <a href="/" className="form-link">
+            <a onClick={handleLoginFromRegistration} className="form-link">
               Not Admin? Login As USer ! 
             </a>
           </div>

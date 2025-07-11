@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './assets/styles.css';
-import { useNavigate } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegistrationPage() {
   const [username, setUsername] = useState('');
@@ -8,13 +8,14 @@ export default function RegistrationPage() {
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError(null); // Clear previous errors
 
     try {
-      const response = await fetch('http://localhost:9090/api/users/register', {
+      const response = await fetch('https://vibemart-backend.onrender.com/api/users/register', {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
@@ -36,6 +37,11 @@ export default function RegistrationPage() {
     }
   };
 
+  //redirecting to customer login page 
+  const handleLoginFromRegistration = () => {
+    navigate('/'); // Navigate to the login route
+  };
+  
   return (
     <div className="page-container">
       <div className="form-container">
@@ -95,8 +101,8 @@ export default function RegistrationPage() {
           <button type="submit" className="form-button">Sign Up</button>
         </form>
         <p className="form-footer">
-          Already a user?{' '}
-          <a href="/" className="form-link">Log in here</a>
+          Already a user?
+          <a onClick={handleLoginFromRegistration} className="form-link">Log in here</a>
         </p>
       </div>
     </div>
